@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandesh Portfolio</title>
+
+<style>
+/* Global Reset */
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family: "Poppins", sans-serif;
+ scroll-behavior:smooth;
+}
+
+body{
+ display:flex;
+ flex-direction:column;
+ min-height:100vh;
+ background:#f8f9fb;
+ color:#333;
+}
+
+/* HEADER / NAVBAR */
+header{
+ background:linear-gradient(90deg,#1a73e8,#00bfff);
+ color:#fff;
+ padding:15px 50px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo{
+ font-size:1.8rem;
+ font-weight:600;
+ letter-spacing:1px;
+}
+
+nav ul{
+ list-style:none;
+ display:flex;
+ gap:30px;
+}
+
+nav ul li a{
+ text-decoration:none;
+ color:#fff;
+ font-size:1rem;
+ padding:8px 15px;
+ border-radius:8px;
+ transition:0.3s;
+ font-weight:500;
+}
+
+nav ul li a:hover{
+ background:#ffffff33;
+ color:#fff;
+}
+
+.menu-toggle{
+ display:none;
+ font-size:1.8rem;
+ cursor:pointer;
+}
+
+@media(max-width:768px){
+ nav ul{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:70px;
+  background:#1a73e8ee;
+  padding:20px;
+  border-radius:12px;
+  flex-direction:column;
+  gap:15px;
+ }
+ nav ul.show{
+  display:flex;
+ }
+ .menu-toggle{
+  display:block;
+ }
+}
+
+/* SECTION BASE STYLES */
+section{
+ padding:120px 40px;
+ text-align:center;
+}
+
+/* HERO */
+#about{
+ background:linear-gradient(to right,#f0f4ff,#d0e7ff);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+}
+
+#about img{
+ width:180px;
+ height:180px;
+ border-radius:50%;
+ border:5px solid #00bfff;
+ object-fit:cover;
+ margin-bottom:20px;
+ box-shadow:0 6px 15px rgba(0,0,0,0.2);
+ transition:0.4s;
+}
+
+#about img:hover{
+ transform:scale(1.05);
+}
+
+/* HEADINGS */
+section h1{
+ font-size:2.8rem;
+ margin-bottom:20px;
+ color:#111;
+ font-weight:600;
+}
+
+section p{
+ font-size:1.15rem;
+ max-width:850px;
+ margin:auto;
+ margin-bottom:30px;
+ line-height:1.7;
+ color:#444;
+}
+
+/* SOCIAL ICONS */
+.social-links{
+ display:flex;
+ gap:20px;
+ justify-content:center;
+ margin-top:20px;
+ flex-wrap:wrap;
+}
+
+@media(max-width:768px){
+ .social-links{
+  gap:10px;
+  justify-content:space-around;
+ }
+}
+
+.social-links a img{
+ width:35px;
+ height:35px;
+ transition:0.3s;
+ filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.social-links a img:hover{
+ transform:translateY(-5px) scale(1.1);
+}
+
+/* BUTTONS */
+.btn{
+ display:inline-block;
+ background:#1a73e8;
+ color:#fff;
+ padding:12px 30px;
+ border-radius:30px;
+ text-decoration:none;
+ font-weight:600;
+ letter-spacing:0.5px;
+ box-shadow:0 5px 12px rgba(0,0,0,0.15);
+ transition:0.35s;
+}
+
+.btn:hover{
+ background:#00bfff;
+ transform:translateY(-3px);
+}
+
+/* SKILLS SECTION */
+#skills{
+ background:linear-gradient(to right,#e0f7fa,#b2ebf2);
+}
+
+.skill{
+ max-width:700px;
+ margin:25px auto;
+ text-align:left;
+}
+
+.skill-name{
+ font-size:1.1rem;
+ font-weight:600;
+ margin-bottom:8px;
+}
+
+.skill-bar{
+ width:100%;
+ background:#e2e2e2;
+ height:20px;
+ border-radius:25px;
+ overflow:hidden;
+}
+
+.skill-bar-inner{
+ height:20px;
+ width:0;
+ background:#1a73e8;
+ border-radius:25px;
+ transition:width 2s ease;
+}
+
+/* ACHIEVEMENTS */
+#achievements{
+ background:linear-gradient(to right,#f0fff0,#d0ffd0);
+}
+
+.projects{
+ display:flex;
+ overflow-x:auto;
+ gap:25px;
+ padding-bottom:10px;
+ scroll-snap-type:x mandatory;
+}
+
+.project-card{
+ flex:0 0 auto;
+ width:260px;
+ background:white;
+ border-radius:12px;
+ padding:15px;
+ box-shadow:0 6px 20px rgba(0,0,0,0.15);
+ scroll-snap-align:start;
+ transition:0.35s;
+}
+
+.project-card:hover{
+ transform:translateY(-8px);
+}
+
+.project-card img{
+ width:100%;
+ border-radius:10px;
+ margin-bottom:15px;
+}
+
+/* FOOTER */
+footer{
+ background:#0f0f0f;
+ color:white;
+ text-align:center;
+ padding:25px;
+ margin-top:auto;
+ font-size:0.95rem;
+}
+
+footer .social-icons a{
+ color:#fff;
+ margin:0 12px;
+ font-size:1.6rem;
+ transition:0.3s;
+}
+
+footer .social-icons a:hover{
+ color:#00bfff;
+ transform:translateY(-5px);
+}
+
+/* TYPEWRITER */
+#typewriter{
+ overflow:hidden;
+ border-right:3px solid #1a73e8;
+ white-space:nowrap;
+ animation:typing 3s steps(30) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing{
+ from{ width:0; }
+ to{ width:100%; }
+}
+
+@keyframes blink{
+ 50%{ border-color:transparent; }
+}
+</style>
+
+<script>
+// MOBILE MENU
+function toggleMenu(){
+ document.getElementById("nav-menu").classList.toggle("show");
+}
+
+// SKILL ANIMATION
+window.addEventListener("scroll",()=>{
+ document.querySelectorAll(".skill-bar-inner").forEach(el=>{
+  let top=el.getBoundingClientRect().top;
+  if(top < window.innerHeight*0.85){
+   el.style.width=el.dataset.progress;
+  }
+ });
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+ <div class="logo">My Portfolio</div>
+ <nav>
+  <ul id="nav-menu">
+   <li><a href="#about">About</a></li>
+   <li><a href="#skills">Skills</a></li>
+   <li><a href="#achievements">Achievements</a></li>
+   <li><a href="#goal">Goal</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+ </nav>
+</header>
+<section id="about">
+    <img src="images/My_photo.jpeg" alt="Profile Image" style="width:150px; height:150px; border-radius:50%; object-fit:cover;" onerror="this.src='https://via.placeholder.com/150';">
+<h1 id="typewriter">Hello, I'm Sandesh</h1>
+<p>Welcome to my personal portfolio website. I am passionate about research, technology, and innovation. Scroll down to explore my work and achievements.</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/sandesh-gharti%F0%9F%87%B3%F0%9F%87%B5-ba6279179/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:30px; height:30px;">
+</a>
+<a href="https://github.com/Ryzenkey" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="width:30px; height:30px;">
+</a>
+<a href="https://www.youtube.com/watch?v=vUjnHcWKzIg&list=PLiS-94wzYYTBS6PO-l-XE0spkw_XkoTwb" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width:30px; height:30px;">
+</a></a>
+<a href="https://scholar.google.com/scholar?as_sdt=0,5&q=Sandesh+Gharti&hl=en&authuser=1" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width:30px; height:30px;">
+</a>
+<a href="https://orcid.org/my-orcid?orcid=0009-0000-2697-1217" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" style="width:30px; height:30px;">
+</a>
+<a href="https://www.researchgate.net/profile/Sandesh-Gharti" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate" style="width:30px; height:30px;">
+</a>
+</div>
+</section>
+<section id="skills" style="background: linear-gradient(to right, #e0f7fa, #b2ebf2); padding: 100px 30px; text-align: center;">
+    <h1>Skills</h1>
+    <p>Here are some of my key skills and their proficiency levels:</p>
+    <div class="skill">
+        <div class="skill-name">Communication</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="85%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Teamwork</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="80%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Problem Solving</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="90%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">Leadership</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="75%"></div></div>
+    </div>
+</section>
+
+<section id="achievements">
+    <h1>Achievements</h1>
+    <p>Here are some of my notable achievements and projects:</p>
+    <div class="projects" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 10px;">
+        <div class="project-card" style="flex: 0 0 auto; scroll-snap-align: start; animation: slideIn 1s ease-in-out;">
+            <img src="images/Project 1.png" alt="Project 1" style="width:100%; height:auto; max-width:70px;">
+            <h3>B.Sc. Forestry Scholarship</h3>
+            <p>2019: I was provided with B.Sc. forestry scholarship at Faculty of Forestry, Agriculture and Forestry University.</p>
+        </div>
+        <div class="project-card" style="flex: 0 0 auto; scroll-snap-align: start; animation: slideIn 1.6s ease-in-out;">
+            <img src="images/Project 4.png" alt="Project 4" style="width:100%; height:auto; max-width:70px;">
+            <h3>SHIFT for Nepal</h3>
+            <p>2022: Forestry Youth Network Project in 2022 on 'Climate Justice for indigenous People' under three organizations: WWF Nepal, Save the Children and SHIFT for Nepal.</p>
+        </div>
+        <div class="project-card" style="flex: 0 0 auto; scroll-snap-align: start; animation: slideIn 1.2s ease-in-out;">
+            <img src="images/Project 2.png" alt="Project 2" style="width:100%; height:auto; max-width:70px;">
+            <h3>Research Project</h3>
+            <p>2023: I run research projects related to forestry and watershed management, study area as West Rapti River.</p>
+        </div>
+        <div class="project-card" style="flex: 0 0 auto; scroll-snap-align: start; animation: slideIn 1.4s ease-in-out;">
+            <img src="images/Project 3.png" alt="Project 3" style="width:100%; height:auto; max-width:70px;">
+            <h3>Government Job as Ranger</h3>
+            <p>2025: I am currently employed as a Ranger in a government forestry department, focusing on forest conservation and management.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    @media (max-width: 768px) {
+        .project-card {
+            flex: 0 0 90%; /* Adjust width for smaller screens */
+            margin: 0 auto; /* Center the cards */
+        }
+        .projects {
+            gap: 10px; /* Reduce gap between cards */
+        }
+        .project-card img {
+            max-width: 50px; /* Adjust image size for mobile */
+        }
+    }
+</style>
+
+<style>
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+<section id="goal">
+    <h1>Goal</h1>
+    <p>As a Forestry Student, my goal is to work on conservation, management, and sustainable utilization of forest resources.</p>
+    <div class="skill">
+        <div class="skill-name">Forestry Research</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="90%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">GIS & Remote Sensing</div>
+        <div class="skill-bar"><div class="skill-bar-inner" data-progress="75%"></div></div>
+    </div>
+</section>
+
+<section id="contact">
+    <h1>Contact</h1>
+    <p>Reach out via email or connect with me on social media. I am open to collaborations and freelance projects.</p>
+    <a href="https://mail.google.com/mail/sandeshgharti12@gmail.com" class="btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:20px; height:20px; vertical-align:middle; margin-right:8px;"> Gmail 
+    </a>
+    <a href="https://wa.me/+977-9866220801" class="btn" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width:20px; height:20px; vertical-align:middle; margin-right:8px;">
+        WhatsApp
+    </a>
+</section>
+
+<footer>
+    &copy; (c) 2025 Sandesh Gharti. All Rights Reserved.
+    <div class="social-icons">
+        <a href="#" target="_blank">🌐</a>
+        <a href="#" target="_blank">💼</a>
+        <a href="#" target="_blank">🐦</a>
+        <a href="#" target="_blank">📸</a>
+    </div>
+</footer>
+
+</body>
+</html>
